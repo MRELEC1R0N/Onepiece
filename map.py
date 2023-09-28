@@ -135,16 +135,14 @@ so far in this funtion i have generated a image for a map on icone but it dosent
                         # Paste the server icon image onto the map
                         image1.paste(server_icon, (icon_x_position, icon_y_position), server_icon)
                         image1.save(f"E:\\one_piece_bot\\IMAGES\\clear_extra.jpg")
+
     except Exception as e:
                 print(f"An error occurred while generating the map: {e}")
-
-
-
-'''                        
----------------------------------------------------------------------------------------------
-This was a previous code for generating outer boundreis of the game as for now i am not focusing on it so its not being used
-----------------------------------------------------------------------------------------------
-'''
+    '''                        
+    ---------------------------------------------------------------------------------------------
+    This was a previous code for generating outer boundreis of the game as for now i am not focusing on it so its not being used
+    ----------------------------------------------------------------------------------------------
+    '''
 
                         # Add lines with unique colors and print dot numbers
                         # draw = ImageDraw.Draw(image1)

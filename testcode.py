@@ -1282,3 +1282,119 @@
 
 
 
+from PIL import Image, ImageDraw
+
+# Define the dimensions of the map
+width = 50
+height = 50
+
+# Create a blank image with a white background
+map_image = Image.new("RGB", (width, height), "white")
+draw = ImageDraw.Draw(map_image)
+
+# Draw the market (0-30 in x axis, 0-20 in y axis)
+for x in range(31):
+    for y in range(21):
+        map_image.putpixel((x, y), (255, 0, 0))  # Red color
+
+# Draw the port (0-30 in x axis, 20-49 in y axis)
+for x in range(31):
+    for y in range(21, 50):
+        map_image.putpixel((x, y), (135, 206, 235))  # Sky blue color
+
+# Draw the town (30-45 in x axis, 0-50 in y axis)
+for x in range(31, 46):
+    for y in range(50):
+        map_image.putpixel((x, y), (0, 128, 0))  # Green color
+
+# Draw the army camp (45-50 in x axis, 0-25 in y axis)
+for x in range(46, 50):
+    for y in range(26):
+        map_image.putpixel((x, y), (0, 100, 0))  # Dark green color
+
+# Draw the palace (45-50 in x axis, 25-50 in y axis)
+for x in range(46, 50):
+    for y in range(26, 50):
+        map_image.putpixel((x, y), (128, 0, 128))  # Purple color
+
+# Add gaps between the boundaries
+gap_width = 2
+
+# Gap between market and port
+for x in range(31 - gap_width, 31 + gap_width + 1):
+    for y in range(21 - gap_width, 50 + gap_width + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            draw.point((x, y), fill="black")
+
+# Gap between market and town
+for x in range(31 - gap_width, 46 + gap_width + 1):
+    for y in range(21 - gap_width, 50 + gap_width + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            draw.point((x, y), fill="black")
+
+# Gap between town and port
+for x in range(31 - gap_width, 31 + gap_width + 1):
+    for y in range(21 - gap_width, 50 + gap_width + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            draw.point((x, y), fill="black")
+
+# Gap between town and army camp
+for x in range(31 - gap_width, 46 + gap_width + 1):
+    for y in range(21 - gap_width, 26 + gap_width + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            draw.point((x, y), fill="black")
+
+# Gap between town and palace
+for x in range(31 - gap_width, 46 + gap_width + 1):
+    for y in range(21 - gap_width, 26 + gap_width + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            draw.point((x, y), fill="black")
+
+## Gap between palace and army camp
+for x in range(46 - gap_width, 50 + gap_width + 1):
+    for y in range(26 - gap_width, 50 + gap_width + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            draw.point((x, y), fill="black")
+
+# Add roads in the gaps
+road_width = 3
+
+# Road between market and port
+for x in range(31 - gap_width - road_width // 2, 31 + gap_width + road_width // 2 + 1):
+    for y in range(21 - gap_width - road_width // 2, 50 + gap_width + road_width // 2 + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            map_image.putpixel((x, y), (255, 255, 0))  # Yellow color
+
+# Road between market and town
+for x in range(31 - gap_width - road_width // 2, 46 + gap_width + road_width // 2 + 1):
+    for y in range(21 - gap_width - road_width // 2, 50 + gap_width + road_width // 2 + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            map_image.putpixel((x, y), (255, 255, 0))  # Yellow color
+
+# Road between town and port
+for x in range(31 - gap_width - road_width // 2, 31 + gap_width + road_width // 2 + 1):
+    for y in range(21 - gap_width - road_width // 2, 50 + gap_width + road_width // 2 + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            map_image.putpixel((x, y), (255, 255, 0))  # Yellow color
+
+# Road between town and army camp
+for x in range(31 - gap_width - road_width // 2, 46 + gap_width + road_width // 2 + 1):
+    for y in range(21 - gap_width - road_width // 2, 26 + gap_width + road_width // 2 + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            map_image.putpixel((x, y), (255, 255, 0))  # Yellow color
+
+# Road between town and palace
+for x in range(31 - gap_width - road_width // 2, 46 + gap_width + road_width // 2 + 1):
+    for y in range(21 - gap_width - road_width // 2, 26 + gap_width + road_width // 2 + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            map_image.putpixel((x, y), (255, 255, 0))  # Yellow color
+
+# Road between palace and army camp
+for x in range(46 - gap_width - road_width // 2, 50 + gap_width + road_width // 2 + 1):
+    for y in range(26 - gap_width - road_width // 2, 50 + gap_width + road_width // 2 + 1):
+        if not (31 <= x <= 45 and 21 <= y <= 25):
+            map_image.putpixel((x, y), (255, 255, 0))  # Yellow color
+
+# Save the map image
+map_image.save("map.png")
+
