@@ -169,7 +169,7 @@
 # from PIL import Image
 
 # # Open the images you want to merge and store them in a list
-# images = [Image.open("E:\\onepiece_bot\\IMAGES\\clear.jpg"), Image.open("E:\\onepiece_bot\\IMAGES\\clear - Copy.jpg"), Image.open("E:\\onepiece_bot\\IMAGES\\clear - Copy (2).jpg"), Image.open("E:\\onepiece_bot\\IMAGES\\clear - Copy (3).jpg")]
+# images = [Image.open("E:\one_piece_bot\IMAGES\clear.jpg"), Image.open("E:\\one_piece_bot\\IMAGES\\clear - Copy.jpg"), Image.open("E:\\one_piece_bot\\IMAGES\\clear - Copy (2).jpg"), Image.open("E:\\one_piece_bot\\IMAGES\\clear - Copy (3).jpg")]
 
 # # Calculate the total width and maximum height of the final image
 # total_width = 0
@@ -190,4 +190,4 @@
 #     x_offset += image.size[0]
 
 # # Save the new image
-# new_image.save("E:\\onepiece_bot\\IMAGES\\clear_extra.jpg")
+# new_image.save("E:\\one_piece_bot\\IMAGES\\clear_extra.jpg")

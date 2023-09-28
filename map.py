@@ -71,20 +71,16 @@ def generate_coordinates(num_points):
         local_coordinates.append({"X_coordinate": x_coordinate_3, "Y_coordinate": y_coordinate_3})
         local_coordinates.append({"X_coordinate": x_coordinate_4, "Y_coordinate": y_coordinate_4})
         
+        #In this part coordinates for the boundries are being gnerated 
+
         
-        coordinates.update(local_coordinates)
-    return coordinates
-
-        # boundries = []
 
 
 
 
 
-
-
-        # collection = rc
-        # collection.update_one({ "_id": "local_locations"}, {"$push": {"locations": local_coordinates}})
+        collection = rc
+        collection.update_one({ "_id": "local_locations"}, {"$push": {"locations": local_coordinates}})
 
 
 
@@ -95,7 +91,7 @@ def generate_coordinates(num_points):
 
 
 
-def design_map(server_id,server_name):
+def design_map(server_id):
     '''In this funtion i am trying to generate a global map for the game so that i can vizualize things in a better way and also to make the game more interesting.
 ______________________________________________________________________________________________
 so far in this funtion i have generated a image for a map on icone but it dosent look that well so and the coordinates of the map are just 500X250 so i am planning to make a bigger whole map and paste the icons on it insted of making 2 sets of coordinates for the game so that i can generate a map for the game.'''
@@ -115,9 +111,9 @@ so far in this funtion i have generated a image for a map on icone but it dosent
                         # nearest_local = server_info['server_coordinate']
 
                         # Open the first image
-                        image1 = Image.open("E:\\onepiece_bot\\IMAGES\\clear_extra.jpg")
+                        image1 = Image.open("E:\\one_piece_bot\\IMAGES\\clear_extra.jpg")
 
-                        image11 = Image.open("E:\onepiece_bot\IMAGES\clear.jpg")
+                        image11 = Image.open("E:\one_piece_bot\IMAGES\clear.jpg")
 
                         # Download the server icon image from the URL
                         response = requests.get(server_pfp_url)
@@ -138,6 +134,17 @@ so far in this funtion i have generated a image for a map on icone but it dosent
 
                         # Paste the server icon image onto the map
                         image1.paste(server_icon, (icon_x_position, icon_y_position), server_icon)
+                        image1.save(f"E:\\one_piece_bot\\IMAGES\\clear_extra.jpg")
+    except Exception as e:
+                print(f"An error occurred while generating the map: {e}")
+
+
+
+'''                        
+---------------------------------------------------------------------------------------------
+This was a previous code for generating outer boundreis of the game as for now i am not focusing on it so its not being used
+----------------------------------------------------------------------------------------------
+'''
 
                         # Add lines with unique colors and print dot numbers
                         # draw = ImageDraw.Draw(image1)
@@ -173,13 +180,10 @@ so far in this funtion i have generated a image for a map on icone but it dosent
                         #     print(f"Line from dot{start} to dot{end}")
 
                         # Save the modified image
-                        image1.save(f"E:\\onepiece_bot\\IMAGES\\global_map.png")
 
 
 
 
-    except Exception as e:
-                print(f"An error occurred while generating the map: {e}")
 
 
 

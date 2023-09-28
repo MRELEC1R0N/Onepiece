@@ -2,6 +2,7 @@ import tracemalloc
 import discord 
 from discord.ext import commands
 import Settings
+from database import reserved_collection_name as rc , collection_name
 
 # Set up the logger
 logger = Settings.logging.getLogger("bot")
@@ -33,6 +34,24 @@ def run():
                 await ctx.send(f'Done {cmd}ing')
             except Exception as e:
                 await ctx.send(f'Error: {e}')
+    @bot.event
+    async def on_guild_join(guild):
+        coordinatess = rc.find_one({"_id": "local_locations"})
+        coordinates = coordinatess['locations'][0]
+
+        # Construct the server_info dictionary
+        server_info = {
+            "_id": guild.id,
+            "guild_id": guild.id,
+            "guild_name": guild.name,
+            "guild_pfp": str(guild.icon.url) if guild.icon else None,
+            "owner_id": guild.owner_id,
+            "Coordinates":coordinates
+            # Add other fields if needed
+        }
+    
+        collection_name.insert_one(server_info)
+        rc.update_one({"_id": "local_locations"}, {"$pop": {"locations": -1}})   
 
     # Start bot with tracemalloc for memory tracking
     tracemalloc.start()
