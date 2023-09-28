@@ -1,0 +1,36 @@
+So in this file  i will store the logs on what i did on bot on what day at what time
+
+
+Pending things:
+As the title suggestes i will add data that need to be updated later on in the game here so that i can keep a good record of it
+
+1) the locations of server need to be very specific that we can update later on too but ya very imp to do for sure
+
+_____________
+| 7/21/23    |
+-------------
+
+so far i have made the logic for maps cooridnates correctly or not i am not sure about it
+but now i have decided to move to next phase of it
+first i will make the image to merge another map in it
+
+
+
+_____________
+| 9/25/23    |
+-------------
+
+so for the logic for cooridnates has been made but not working in manner i want it to work
+so i will improve it on daily basis and work on further development of bot simantaniously
+
+now the plan is to make the map for the islands and along with them make a logic for the ships along with a shops ui for the ships 
+and then i will make the logic for the ships to move from one island to another 
+
+
+_____________
+| 9/25/23    |
+-------------
+So far  i have made a biger map for the game which is 4 times the orignal one so droppping the concept of matrix now we are playing on real images insted with numbers
+
+after making a map for the sea now i will try to improve it with the boundries 
+
