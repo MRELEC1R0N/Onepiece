@@ -191,3 +191,125 @@
 
 # # Save the new image
 # new_image.save("E:\\one_piece_bot\\IMAGES\\clear_extra.jpg")
+
+
+
+
+#gpt-4
+'''class Boat:
+    # A class variable that stores the number of boats created
+    num_boats = 0
+
+    # A constructor method that initializes the instance variables
+    def __init__(self, name, size, speed):
+        self.name = name # The name of the boat
+        self.size = size # The size of the boat in meters
+        self.speed = speed # The speed of the boat in knots
+        self.cargo = [] # A list that stores the items on the boat
+        Boat.num_boats += 1 # Increment the class variable by 1
+
+    # A method that returns a string representation of the boat
+    def __str__(self):
+        return f"{self.name} is a {self.size}-meter boat that can sail at {self.speed} knots."
+
+    # A method that sails the boat to a destination
+    def sail(self, destination):
+        print(f"{self.name} is sailing to {destination}.")
+
+    # A method that docks the boat at a port
+    def dock(self, port):
+        print(f"{self.name} has docked at {port}.")
+
+    # A method that loads an item onto the boat
+    def load(self, item):
+        self.cargo.append(item) # Add the item to the cargo list
+        print(f"{item} has been loaded onto {self.name}.")
+
+    # A method that unloads an item from the boat
+    def unload(self, item):
+        if item in self.cargo: # Check if the item is in the cargo list
+            self.cargo.remove(item) # Remove the item from the cargo list
+            print(f"{item} has been unloaded from {self.name}.")
+        else:
+            print(f"{item} is not on {self.name}.")# Create a boat object named Sunny
+
+sunny = Boat("Sunny", 20, 15)
+
+# Print the string representation of Sunny
+print(sunny)
+# Output: Sunny is a 20-meter boat that can sail at 15 knots.
+
+# Sail Sunny to Grand Line
+sunny.sail("Grand Line")
+# Output: Sunny is sailing to Grand Line.
+
+# Load some items onto Sunny
+sunny.load("fruit")
+sunny.load("water")
+sunny.load("treasure")
+# Output:
+# fruit has been loaded onto Sunny.
+# water has been loaded onto Sunny.
+# treasure has been loaded onto Sunny.
+
+# Print the cargo list of Sunny
+print(sunny.cargo)
+# Output: ['fruit', 'water', 'treasure']
+
+# Unload some items from Sunny
+sunny.unload("treasure")
+sunny.unload("meat")
+# Output:
+# treasure has been unloaded from Sunny.
+# meat is not on Sunny.
+
+# Dock Sunny at Water 7
+sunny.dock("Water 7")
+# Output: Sunny has docked at Water 7.
+
+    
+'''
+
+
+#copilot
+'''
+
+class Boat:
+    def __init__(self, name: str, capacity: int, speed: float, location: tuple, heading: float, status: str):
+        self.name = name
+        self.capacity = capacity
+        self.speed = speed
+        self.location = location
+        self.heading = heading
+        self.status = status
+
+    def set_name(self, name: str) -> None:
+        self.name = name
+
+    def set_capacity(self, capacity: int) -> None:
+        self.capacity = capacity
+
+    def set_speed(self, speed: float) -> None:
+        self.speed = speed
+
+    def set_location(self, latitude: float, longitude: float) -> None:
+        self.location = (latitude, longitude)
+
+    def set_heading(self, heading: float) -> None:
+        self.heading = heading
+
+    def set_status(self, status: str) -> None:
+        self.status = status
+
+    def get_properties(self) -> dict:
+        return {
+            "name": self.name,
+            "capacity": self.capacity,
+            "speed": self.speed,
+            "location": self.location,
+            "heading": self.heading,
+            "status": self.status
+        }
+
+
+'''
